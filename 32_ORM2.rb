@@ -3,7 +3,6 @@ class Model
   @@all_fields = []
 
   def initialize
-    @fields = @@all_fields
     @values = {}
   end
 

@@ -15,3 +15,8 @@ puts "- test_lambda.call(7,2,3) # => wrong number of arguments (3 for 2). detect
 test_lambda.call(7,2)
 puts "-"*10
 puts
+
+
+# $global_val = "I'm global! 1"
+# @global_val = "I'm global! 2"
+# global_val = "I'm global! 3"

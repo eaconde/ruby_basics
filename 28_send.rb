@@ -3,6 +3,13 @@
 class Account
   attr_accessor :name, :address, :email, :notes
 
+  def initialize(options = {})
+    options.each_key do |k|
+      self.send("#{k}=", options[k])
+    end
+  end
+
+  # same as initialize but as a method
   def init(params)
     params.each_key do |k|
       # code below translates to
@@ -14,6 +21,8 @@ class Account
       # so we can maintain the type of object passed instead of interpolated string
     end
   end
+
+
 end
 
 user_info = {
@@ -23,15 +32,17 @@ user_info = {
               notes: 'Loyal customer'
             }
 
-account = Account.new
+# account = Account.new
 
-# Hard way...
+# # Hard way...
 # account.name = user_info[:name]
 # account.address = user_info[:address]
 # account.email = user_info[:email]
 # account.notes = user_info[:notes]
 
-# Cool way!
-account.init(user_info)
+# Short hand
+# account.init(user_info)
 
+# Standard
+account = Account.new(user_info)
 puts account.inspect
